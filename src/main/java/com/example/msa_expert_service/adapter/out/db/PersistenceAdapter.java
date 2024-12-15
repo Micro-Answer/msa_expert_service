@@ -15,12 +15,12 @@ public class PersistenceAdapter {
      * - 이메일과 나이는 예시 데이터
      * </p>
      *
-     * @param id 아이디
+     * @param userId 유저 아이디
      * @param email 예시 데이터
      * @param age 예시 데이터
      */
-    public void saveExpertUser(String id, String email, int age) {
+    public void saveExpertUser(String userId, String email, int age) {
         // 데이터베이스 저장 예시
-        System.out.printf("저장된 데이터: 아이디 = %s, 이메일 = %s, 나이 = %d \n", id, email, age);
+        System.out.printf("저장된 데이터: 아이디 = %s, 이메일 = %s, 나이 = %d \n", userId, email, age);
     }
 }

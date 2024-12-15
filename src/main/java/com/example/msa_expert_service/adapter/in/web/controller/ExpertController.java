@@ -25,7 +25,7 @@ public class ExpertController {
 
     @PostMapping("/v1/expert/sign-up")
     public ResponseEntity<ExpertSignUpResponse> signUp(@RequestBody ExpertSignUpRequest body) {
-        boolean signUpSuccess = expertService.signUp(body.getId(), body.getPw(), body.getRole());
+        boolean signUpSuccess = expertService.signUp(body.getUserId(), body.getPw(), body.getRole());
 
         if (signUpSuccess) {
             return ResponseEntity.ok(new ExpertSignUpResponse("회원가입 성공"));
