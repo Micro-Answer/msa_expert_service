@@ -24,19 +24,19 @@ public class ExpertService {
     /**
      * <b> 일반 유저 회원가입 로직 수행 </b>
      *
-     * @param id 아이디
+     * @param userId 유저 아이디
      * @param pw 비밀번호
      * @param role 역할
      * @return 회원가입 성공 여부
      */
-    public boolean signUp(String id, String pw, String role) {
+    public boolean signUp(String userId, String pw, String role) {
         try {
             // 외부 서비스에 회원가입 요청
-            final HttpResponse<String> response = userAuthAPI.requestUserSignUp(id, pw, role);
+            final HttpResponse<String> response = userAuthAPI.requestUserSignUp(userId, pw, role);
 
             // 외부 서비스 응답 코드에 따라 처리
             if (response.statusCode() == 200 || response.statusCode() == 201) {
-                persistenceAdapter.saveExpertUser(id, "email", 19);
+                persistenceAdapter.saveExpertUser(userId, "email", 19);
                 return true;
             } else {
                 logger.log(Level.WARNING, "회원가입 실패, 응답 코드: " + response.statusCode());
